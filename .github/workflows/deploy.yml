@@ -14,5 +14,5 @@ jobs:
         run: |
           curl "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$CLOUDFLARE_PAGES_NAME/deployments" \
           -H "Content-Type: multipart/form-data" \
-          -u "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+          -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
           -F branch=main
