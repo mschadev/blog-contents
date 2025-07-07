@@ -53,7 +53,7 @@ result[0].birth; // string 타입
 이제 변수 `result`의 타입은 `{ birth: string; name: string; }[];`로 추론된다.
 ## 항상 덮어쓰는 속성 감지
 `tsconfig.json`파일에서 `compilerOptions.strictNullChecks`[^2]를 `true`로 설정하면 사용할 수 있는 기능이다.
-[^2]: [stirct](https://www.typescriptlang.org/tsconfig/#strict)를 활성화하면 자동으로 strictNullChecks도 활성화된다. 하지만 다른 설정도 같이 활성화되니 주의
+[^2]: [strict](https://www.typescriptlang.org/tsconfig/#strict)를 활성화하면 자동으로 strictNullChecks도 활성화된다. 하지만 다른 설정도 같이 활성화되니 주의
 ```ts showLineNumbers title="main.ts"
 interface User {
   name: string;
