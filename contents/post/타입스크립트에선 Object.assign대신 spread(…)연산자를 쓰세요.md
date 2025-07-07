@@ -8,7 +8,7 @@ tags: ["javascript", "typescript"]
 > [!WARNING]
 > Object.assign을 아는 독자를 대상으로 작성한 포스트입니다.
 
-일반적으로 얕은 복사로 객체를 병합한다면 표준 함수인 [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)가 하나의 선택지가 될 수 있다. 하지만 2014년에 [Object Spread(...) 연산자](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals)가 제안[^1]되었고 2016년에 [타입스크립트 2.1](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-1.html#object-spread-and-rest)에서 등장했다. 자바스크립트에선 ES2018(ES9)에 도입되었다. 도입 이후 왜 `Object.assign`보다 Spread 연산자가 나은지 설명한다.
+일반적으로 얕은 복사로 객체를 병합한다면 표준 함수인 [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)이 하나의 선택지가 될 수 있다. 하지만 2014년에 [Object Spread(...) 연산자](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_object_literals)가 제안[^1]되었고 2016년에 [타입스크립트 2.1](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-1.html#object-spread-and-rest)에서 등장했다. 자바스크립트에선 ES2018(ES9)에 도입되었다. 도입 이후 왜 `Object.assign`보다 Spread 연산자가 나은지 설명한다.
 
 [^1]: [Github](https://github.com/tc39/proposal-object-rest-spread)
 ## 강력한 타입 추론
