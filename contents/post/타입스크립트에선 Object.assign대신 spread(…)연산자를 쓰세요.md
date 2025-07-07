@@ -1,5 +1,5 @@
 ---
-title: "타입스크립트에선 Object.assign대신 Spread(…)연산자를 쓰세요"
+title: "타입스크립트에선 Object.assign대신 Spread(...) 연산자를 쓰세요"
 description: "얕은 복사와 객체 병합을 목적으로 Object.assign()을 사용합니다. 하지만 타입스크립트에선 대부분의 경우 Spread(...) 연산자를 쓰는 게 더 낫습니다."
 pubDate: "2025-07-03 15:08:00"
 tags: ["javascript", "typescript"]
@@ -31,7 +31,7 @@ const result = users.map((user) =>
 ```ts
 assign<T extends {}, U, V>(target: T, source1: U, source2: V): T & U & V;
 ```
-리턴 타입이 `T & U & V`이라 `{} & User & {birth: string}`이고 최종적으로 `(User & { birth: string; })[];` 타입이 추론된 것이다.
+리턴 타입이 `T & U & V`라 `{} & User & {birth: string}`이고 최종적으로 `(User & { birth: string; })[];` 타입이 추론된 것이다.
 
 반면에 Spread 연산자는 Object Literal로 평가되므로 우리가 기대한 타입으로 추론된다.
 ```ts {9}
@@ -53,7 +53,7 @@ result[0].birth; // string 타입
 이제 변수 `result`의 타입은 `{ birth: string; name: string; }[];`로 추론된다.
 ## 항상 덮어쓰는 속성 감지
 `tsconfig.json`파일에서 `compilerOptions.strictNullChecks`[^2]를 `true`로 설정하면 사용할 수 있는 기능이다.
-[^2]: [stirct](https://www.typescriptlang.org/tsconfig/#strict)를 활성화하면 자동으로 strictNullChecks도 활성화 된다. 하지만 다른 설정도 같이 활성화되니 주의
+[^2]: [stirct](https://www.typescriptlang.org/tsconfig/#strict)를 활성화하면 자동으로 strictNullChecks도 활성화된다. 하지만 다른 설정도 같이 활성화되니 주의
 ```ts showLineNumbers title="main.ts"
 interface User {
   name: string;
@@ -72,15 +72,15 @@ const result = users.map((user) => ({
   birth: user.birth.toISOString(),
 }));
 ```
-먼저 등장한 `name`은 Spread 연산에 의해 덮어씌어진다.
+먼저 등장한 `name`은 Spread 연산 때문에 덮어 쓰인다.
 
 Spread 연산과 타입스크립트 컴파일 옵션을 적절히 조합하면 이러한 실수도 방지할 수 있다.
 
-## `Object.assign`와 비교
+## `Object.assign`과 비교
 모든 상황에서 Spread 연산자를 대체할 수 있는 건 아니다.
 
 ### Setter
-`Object.assgin`함수의 첫 번째 매개변수인 `target: T`에 Setter가 있고 병합하려는 경우 Setter가 트리거되지만 Spread 연산은 그렇지 않다. 트리거가 되어야 하는 경우 Spread 연산자를 사용해선 안된다.
+`Object.assgin`함수의 첫 번째 매개변수인 `target: T`에 Setter가 있고 병합하려는 경우 Setter가 트리거 되지만 Spread 연산은 그렇지 않다. 트리거가 되어야 하는 경우 Spread 연산자를 사용해선 안 된다.
 ```ts showLineNumbers
 const objectAssign = Object.assign(
   {
