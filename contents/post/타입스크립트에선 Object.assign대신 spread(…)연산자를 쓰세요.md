@@ -2,6 +2,7 @@
 title: "타입스크립트에선 Object.assign대신 Spread(...) 연산자를 쓰세요"
 description: "얕은 복사와 객체 병합을 목적으로 Object.assign()을 사용합니다. 하지만 타입스크립트에선 대부분의 경우 Spread(...) 연산자를 쓰는 게 더 낫습니다."
 pubDate: "2025-07-03 15:08:00"
+updatedDate: "2025-07-07 21:31:00"
 tags: ["javascript", "typescript"]
 ---
 
