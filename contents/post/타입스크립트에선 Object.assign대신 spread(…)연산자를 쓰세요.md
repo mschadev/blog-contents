@@ -4,6 +4,7 @@ description: "얕은 복사와 객체 병합을 목적으로 Object.assign()을 
 pubDate: "2025-07-03 15:08:00"
 updatedDate: "2025-07-07 21:31:00"
 tags: ["javascript", "typescript"]
+ccl: true
 ---
 
 > [!WARNING]
